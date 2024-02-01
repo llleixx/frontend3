@@ -1,6 +1,9 @@
 import data from '@/assets/shared/data.json'
+import { ref } from 'vue'
 
-const assets = import.meta.glob(['../assets/**/*.png', '../assets/**/*.webp', '../assets/**/*.jpg'], {eager: true})
+const assets = import.meta.glob(['../assets/**/*.png', '../assets/**/*.webp', '../assets/**/*.jpg'], { eager: true })
+const contents = ["home", "destination", "crew", "technology"]
+const nowIndex = ref(0)
 
 const getAssetUrl = (path) => {
   if (assets[path]) {
@@ -10,7 +13,9 @@ const getAssetUrl = (path) => {
 
 const store = {
   data,
-  getAssetUrl
+  getAssetUrl,
+  contents,
+  nowIndex
 }
 
 export default store

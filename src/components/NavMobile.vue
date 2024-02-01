@@ -4,29 +4,30 @@
       <img src="../assets/shared/logo.svg" alt="logo" height="30px" width="30px" />
     </div>
     <div class="hamburger-wrapper image-wrapper" @click="open = !open">
-      <img src="../assets/shared/icon-hamburger.svg" alt="more" height="25px" width="25px" v-show="open"/>
+      <img src="../assets/shared/icon-hamburger.svg" alt="more" height="25px" width="25px" v-show="open" />
     </div>
   </div>
 
   <Teleport to="body">
     <div class="sidebar" ref="sidebar">
       <div class="sidebar-header">
-        <img src="../assets/shared/icon-close.svg" alt="close" height="20px" width="20px" @click="open=!open"/>
+        <img src="../assets/shared/icon-close.svg" alt="close" height="20px" width="20px" @click="open = !open" />
       </div>
       <nav>
-        <RouterLink :to="{ name: 'home'}"><span class="link-prefix">00</span> HOME</RouterLink>
-        <RouterLink :to="{ name: 'destination'}"><span class="link-prefix">01</span> DESTINATION</RouterLink>
-        <RouterLink :to="{ name: 'crew'}"><span class="link-prefix">02</span> CREW</RouterLink>
-        <RouterLink :to="{ name: 'technology'}"><span class="link-prefix">03</span> TECHNOLOGY</RouterLink>
+        <RouterLink v-for="(name, i) in contents" :to="{ name: name }" :key="i" :class="{ selected: i === nowIndex }">
+          <span class="link-prefix">{{ '0' + i }}</span> {{ name.toUpperCase() }}
+        </RouterLink>
       </nav>
     </div>
     <div class="sidebar-mask" ref="sidebarMask" @click="open = !open"></div>
   </Teleport>
-
 </template>
 
 <script setup>
 import { ref, watch, onMounted } from 'vue'
+import store from '../store'
+
+const { nowIndex, contents } = store
 
 const open = ref(true)
 const sidebar = ref(null)
@@ -38,8 +39,6 @@ onMounted(() => {
     sidebarMask.value.classList.toggle('open')
   })
 })
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -51,7 +50,7 @@ onMounted(() => {
   padding: 20px;
   justify-content: space-between;
   background-color: $dark-black;
-  
+
   .image-wrapper {
     display: flex;
     align-items: center;
@@ -62,6 +61,7 @@ onMounted(() => {
 .sidebar-header {
   padding: 15px;
   position: relative;
+
   img {
     position: absolute;
     right: 0;
@@ -84,6 +84,7 @@ nav {
     font-weight: 1000;
   }
 }
+
 .sidebar {
   width: 250px;
   position: fixed;

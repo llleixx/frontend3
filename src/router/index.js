@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import TechnologyView from '@/views/TechnologyView.vue'
 import DestinationView from '@/views/DestinationView.vue'
 import CrewView from '@/views/CrewView.vue'
+import store from '../store'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,10 @@ const router = createRouter({
       component: DestinationView
     }
   ]
+})
+
+router.beforeResolve(async to => {
+  store.nowIndex.value = store.contents.indexOf(to.name)
 })
 
 export default router

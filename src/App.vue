@@ -6,11 +6,13 @@ import NavDesktop from './components/NavDesktop.vue'
 
 const isMobile = ref(true)
 
+function checkMobile() {
+  isMobile.value = window.innerWidth < 768
+}
+
 onMounted(() => {
-  window.addEventListener('resize', () => {
-    isMobile.value = window.innerWidth <= 768
-  },
-  { passive: true })
+  checkMobile()
+  window.addEventListener("resize", checkMobile)
 })
 </script>
 

@@ -1,20 +1,27 @@
 <template>
   <div class="crew-container">
     <h1><span class="head-prefix">02</span> MEET YOUR CREW</h1>
-    <div class="crew-wrapper">
-      <picture class="crew-image">
-        <source :srcset="getImageUrl('webp')" type="image/webp" width="170px" />
-        <img alt="crew" :src="getImageUrl('png')" width="170px" />
-      </picture>
+    <div class="crew-main">
+      <div class="crew-wrapper">
+        <picture>
+          <source :srcset="getImageUrl('webp')" type="image/webp" />
+          <img class="crew-image" alt="crew" :src="getImageUrl('png')" width="170px" />
+        </picture>
+      </div>
+      <div class="crew-section">
+        <ul class="crew-items">
+          <li v-for="(crew, i) in data" :key="i" :class="{ selected: i === nowIndex, 'crew-item': true }"
+            @click="nowIndex = i">
+          </li>
+        </ul>
+        <div class="crew-description">
+          <p class="crew-role crew-p">{{ data[nowIndex].role }}</p>
+          <p class="crew-name crew-p">{{ data[nowIndex].name }}</p>
+          <p class="crew-bio crew-p">{{ data[nowIndex].bio }}</p>
+        </div>
+      </div>
     </div>
-    <ul class="crew-items">
-      <li v-for="(crew, i) in data" :key="i" :class="{selected: i === nowIndex, 'crew-item': true}" @click="nowIndex=i"></li>
-    </ul>
-    <div class="crew-dsecription">
-      <p class="crew-role">{{ data[nowIndex].role }}</p>
-      <p class="crew-name">{{ data[nowIndex].name }}</p>
-      <p class="crew-bio">{{  data[nowIndex].bio }}</p>
-    </div>
+
   </div>
 </template>
 
@@ -38,6 +45,16 @@ function getImageUrl(suffix) {
   background: url('../assets/crew/background-crew-mobile.jpg') top left / cover no-repeat;
   min-height: calc(100vh - 70px);
   color: white;
+}
+
+.crew-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.crew-section {
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -68,7 +85,9 @@ h1 {
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  padding: 0 120px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 30px;
 }
 
@@ -87,7 +106,8 @@ h1 {
 .crew-role {
   color: grey;
   text-align: center;
-  margin-top: 30px;;
+  margin-top: 30px;
+  ;
   text-transform: uppercase;
 }
 
@@ -101,11 +121,123 @@ h1 {
 
 .crew-bio {
   text-align: center;
-  padding-left: 40px;
-  padding-right: 40px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.5;
   color: $soft-purple;
+}
+
+.crew-description {
   padding-bottom: 70px;
 }
 
+@media (min-width: 768px) {
+  h1 {
+    text-align: start;
+    padding-left: 20px;
+  }
+
+  .crew-container {
+    min-height: calc(100vh - 100px);
+  }
+
+  .crew-description {
+    margin-left: auto;
+    margin-right: auto;
+    order: 1;
+    padding-bottom: 20px;
+  }
+
+  .crew-items {
+    order: 2;
+    margin-top: 20px;
+  }
+
+  .crew-wrapper {
+    order: 3;
+    height: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .crew-image {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .crew-main {
+    flex-direction: row;
+  }
+
+  .crew-wrapper {
+    flex: 1;
+  }
+
+  .crew-section {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .crew-p,
+  .crew-items {
+    text-align: start;
+    margin-left: 0;
+  }
+
+  h1 {
+    margin-left: 80px;
+    padding-left: 0;
+  }
+
+  .crew-section {
+    margin-left: 80px;
+    padding-left: 0;
+    margin-right: auto;
+  }
+
+  .crew-name {
+    font-size: 58px;
+    text-wrap: nowrap;
+  }
+
+  .crew-role {
+    font-size: 32px;
+  }
+
+  .crew-bio {
+    font-size: 18px;
+  }
+
+  .crew-items {
+    margin-top: 80px;
+  }
+
+  .crew-image {
+    width: 75%;
+  }
+
+  .crew-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .crew-main {
+    flex: 1;
+  }
+
+
+  .crew-item {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+
+  .crew-wrapper {
+    align-items: flex-end;
+  }
+}
 </style>
