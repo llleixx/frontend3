@@ -90,7 +90,7 @@ h1 {
   height: 50px;
   border-radius: 50%;
   background-color: transparent;
-  border: 1px solid white;
+  border: 2px solid grey;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,6 +99,7 @@ h1 {
 
 .technology-item.selected {
   background-color: white;
+  border-color: white;
   color: $dark-black;
 }
 
@@ -172,9 +173,16 @@ h1 {
   }
 
   .technology-item {
-    cursor: pointer;
     width: 65px;
     height: 65px;
+
+    &:hover {
+      cursor: pointer;
+
+      &:not(.selected) {
+        border-color: #DDD;
+      }
+    }
   }
 
   .technology-image {

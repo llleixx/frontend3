@@ -96,7 +96,7 @@ h1 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: grey;
+  background-color: #777;
 }
 
 .crew-item.selected {
@@ -233,8 +233,17 @@ h1 {
   .crew-item {
     width: 15px;
     height: 15px;
-    cursor: pointer;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover:not(.selected) {
+      background-color: #DDD;
+    }
   }
+
+
 
   .crew-wrapper {
     align-items: flex-end;

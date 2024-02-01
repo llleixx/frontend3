@@ -229,8 +229,12 @@ hr {
     margin-left: 0;
   }
 
-  .planet-items {
+  .planet-item:hover {
     cursor: pointer;
+
+    &:not(.selected) {
+      border-bottom: 5px solid #AAA;
+    }
   }
 }
 </style>
