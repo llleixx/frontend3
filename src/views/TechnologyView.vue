@@ -4,9 +4,9 @@
     <div class="technology-main">
       <div class="technology-wrapper">
         <picture>
-          <source :srcset="getImageUrl('landscape')" type="image/jpg" media="(max-width: 1023px)" />
-          <source :srcset="getImageUrl('portrait')" type="image/jpg" media="(min-width: 1024px)" />
-          <img class="technology-image" :src="getImageUrl('portrait')" alt="technology picture" />
+          <source :srcset="getImageUrl('landscape')" type="image/jpg" media="(max-width: 1023px)" height="175" />
+          <source :srcset="getImageUrl('portrait')" type="image/jpg" media="(min-width: 1024px)" height="420" />
+          <img class="technology-image" :src="getImageUrl('portrait')" alt="technology picture" height="420" />
         </picture>
       </div>
       <div class="technology-section">
