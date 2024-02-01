@@ -149,7 +149,7 @@ h1 {
   h1 {
     margin-left: 80px;
     padding-left: 0;
-    padding-top: 50px;
+    padding-top: 20px;
   }
 
   .technology-wrapper {
@@ -162,7 +162,6 @@ h1 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-bottom: 80px;
   }
 
   .technology-items {

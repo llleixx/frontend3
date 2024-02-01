@@ -5,7 +5,7 @@
       <div class="crew-wrapper">
         <picture>
           <source :srcset="getImageUrl('webp')" type="image/webp" />
-          <img class="crew-image" alt="crew" :src="getImageUrl('png')" width="170px" />
+          <img class="crew-image" alt="crew" :src="getImageUrl('png')" width="170" />
         </picture>
       </div>
       <div class="crew-section">

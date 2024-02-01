@@ -1,7 +1,7 @@
 <template>
   <div class="header-container">
     <div class="log-wrapper image-wrapper">
-      <img src="../assets/shared/logo.svg" alt="logo" height="50px" width="50px" />
+      <img src="../assets/shared/logo.svg" alt="logo" height="50" width="50" />
     </div>
     <nav>
       <RouterLink v-for="(name, i) in contents" :to="{ name: name }" :key="i" :class="{ selected: i === nowIndex }">

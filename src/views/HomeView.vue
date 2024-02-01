@@ -1,8 +1,8 @@
 <template>
-  <div class="home-container">
+  <main class="home-container">
     <div class="home-ps">
       <h1>
-        <p class="home-p-0 home-p">So, you have to travel to</p>
+        <span class="home-p-0 home-p">So, you have to travel to</span>
         <span class="home-p-1 home-p">space</span>
       </h1>
       <p class="home-p-2 home-p">Let’s face it; if you want to go to space, you might as well genuinely go to outer space
@@ -15,7 +15,7 @@
         <p>Explore</p>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup>

@@ -1,17 +1,17 @@
 <template>
   <div class="header-container">
     <div class="log-wrapper image-wrapper">
-      <img src="../assets/shared/logo.svg" alt="logo" height="30px" width="30px" />
+      <img src="../assets/shared/logo.svg" alt="logo" height="30" width="30" />
     </div>
     <div class="hamburger-wrapper image-wrapper" @click="open = !open">
-      <img src="../assets/shared/icon-hamburger.svg" alt="more" height="25px" width="25px" v-show="open" />
+      <img src="../assets/shared/icon-hamburger.svg" alt="more" height="25" width="25" v-show="open" />
     </div>
   </div>
 
   <Teleport to="body">
     <div class="sidebar" ref="sidebar">
       <div class="sidebar-header">
-        <img src="../assets/shared/icon-close.svg" alt="close" height="20px" width="20px" @click="open = !open" />
+        <img src="../assets/shared/icon-close.svg" alt="close" height="20" width="20" @click="open = !open" />
       </div>
       <nav>
         <RouterLink v-for="(name, i) in contents" :to="{ name: name }" :key="i" :class="{ selected: i === nowIndex }">

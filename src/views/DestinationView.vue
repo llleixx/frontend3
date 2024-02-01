@@ -5,7 +5,7 @@
       <div class="planet-wrapper">
         <picture>
           <source :srcset="getImageUrl('webp')" type="image/webp">
-          <img class="planet-image" alt="planet" :src="getImageUrl('png')" width="200px" height="200px" />
+          <img class="planet-image" alt="planet" :src="getImageUrl('png')" width="200" height="200" />
         </picture>
       </div>
       <div class="planet">
